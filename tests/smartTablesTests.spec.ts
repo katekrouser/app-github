@@ -1,7 +1,7 @@
 import { test, expect } from './page-objects.ts/test-options'
 import { faker } from '@faker-js/faker'
 
-test('Add new user to Smart Table', async ({ page, pm }) => {
+test('Add new user to Smart Table',{ tag: '@regression' }, async ({ page, pm }) => {
 
     const user = {
         id: faker.number.int({ min: 100, max: 999 }).toString(),
