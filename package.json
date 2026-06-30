@@ -16,6 +16,7 @@
 
     "test:dev": "playwright test --project=dev",
     "test:staging": "playwright test --project=staging",
+    "test:regression": "playwright test --project=dev --grep @regression",
 
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
