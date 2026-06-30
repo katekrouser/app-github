@@ -13,13 +13,10 @@ export const test = base.extend<PageManagerFixture>({
     await base.step('Navigate to main page', async () => {
       await page.goto('/');
       await base.expect(page.getByRole('link', { name: 'PW-test' })).toBeVisible();
-    });
+    }, { box: true });
 
     /* Pass the initialized pageManager object to the test */
     await use(pageManager);
-    
-    /* Code below this point executes after the test run finishes (cleanup phase) */
-    console.log('Test run is finished');
   },
 });
 
