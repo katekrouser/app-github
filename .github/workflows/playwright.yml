@@ -9,9 +9,7 @@ on:
     branches: 
       - main
       - master
-    branches-ignore:
-      - 'feature/**'
-      
+
   workflow_dispatch:
     inputs:
       test_tag:
@@ -43,6 +41,9 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    if: |
+      github.event_name != 'pull_request' || 
+      !startsWith(github.head_ref, 'feature/')
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
