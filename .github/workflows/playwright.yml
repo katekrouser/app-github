@@ -6,7 +6,12 @@ on:
       - master
       - 'feature/**'
   pull_request:
-    branches: [ main, master ]
+    branches: 
+      - main
+      - master
+    branches-ignore:
+      - 'feature/**'
+      
   workflow_dispatch:
     inputs:
       test_tag:
