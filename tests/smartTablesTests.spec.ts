@@ -1,7 +1,5 @@
-import { test, expect } from './page-objects.ts/test-options'
+import { test, expect } from './page-objects/test-options'
 import { faker } from '@faker-js/faker'
-
-test('Add new user to Smart Table',{ tag: '@regression' }, async ({ page, pm }) => {
 
     const user = {
         id: faker.number.int({ min: 100, max: 999 }).toString(),
@@ -12,16 +10,28 @@ test('Add new user to Smart Table',{ tag: '@regression' }, async ({ page, pm }) 
         age: faker.number.int({ min: 18, max: 65 }).toString(),
     }
 
-    await page.goto('/')
-    await pm.navigateTo().openSmartTable()
-    await pm.onSmartTablesPage().createUser(user)
-    const createdRow = await pm.onSmartTablesPage().getRowByEmail(user.email)
+test.describe('Smart Table Tests', () => {
 
-    await expect(createdRow).toBeVisible()
-    await expect(createdRow).toContainText(user.id)
-    await expect(createdRow).toContainText(user.firstName)
-    await expect(createdRow).toContainText(user.lastName)
-    await expect(createdRow).toContainText(user.username)
-    await expect(createdRow).toContainText(user.email)
-    await expect(createdRow).toContainText(user.age)
+    test('Add new user to Smart Table',{ tag: '@regression' }, async ({ page, pm }) => {
+
+        await test.step('Open smart table page', async () => {
+            await pm.navigateTo().openSmartTable()
+        });
+
+        await test.step('Create new user entry', async () => {
+            await pm.onSmartTablesPage().createUser(user)
+        });
+
+        await test.step('Verify new row has been added with user data', async () => {
+            const createdRow = await pm.onSmartTablesPage().getRowByEmail(user.email)
+            await expect(createdRow).toBeVisible()
+            await expect(createdRow).toBeVisible()
+            await expect(createdRow).toContainText(user.id)
+            await expect(createdRow).toContainText(user.firstName)
+            await expect(createdRow).toContainText(user.lastName)
+            await expect(createdRow).toContainText(user.username)
+            await expect(createdRow).toContainText(user.email)
+            await expect(createdRow).toContainText(user.age)
+        })
+    })
 })
