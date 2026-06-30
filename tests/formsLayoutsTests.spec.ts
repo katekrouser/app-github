@@ -1,7 +1,7 @@
 import { test, expect } from './page-objects.ts/test-options' 
 import { faker } from '@faker-js/faker'
 
-test('Fill Inline form with fake input data', async ({page, pm}) => {
+test('Fill Inline form with fake input data', { tag: '@regression' }, async ({page, pm}) => {
   const fullName = faker.person.fullName()
   const emailPrefix = fullName.toLowerCase().replace(/\s+/g, '')
   const userEmail = `${emailPrefix}qaauto@test.com`
