@@ -5,6 +5,32 @@ on:
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
+    inputs:
+      test_tag:
+        description: 'Select Test Tag to Run'
+        required: true
+        default: '@regression'
+        type: choice
+        options:
+          - '@regression'
+          - '@smoke'
+          - '@sanity'
+      
+      project_env:
+        description: 'Select Project/Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - 'dev'
+          - 'staging'
+
+      enable_trace:
+        description: 'Enable Playwright Trace (for debugging)'
+        required: true
+        default: false
+        type: boolean 
+        
 jobs:
   test:
     timeout-minutes: 60
