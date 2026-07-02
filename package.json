@@ -16,12 +16,20 @@
 
     "test:dev": "playwright test --project=dev",
     "test:staging": "playwright test --project=staging",
-    "test:regression": "npx playwright test --project=dev --grep @regression",
+
+    "test:regression": "playwright test --grep @regression",
+    "test:regression:staging": "playwright test --project=staging --grep @regression",
+
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
 
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure": "npm run allure:generate && npm run allure:open"
-  },
+},
   "dependencies": {
     "@angular/animations": "^14.2.12",
     "@angular/cdk": "14.2.7",
