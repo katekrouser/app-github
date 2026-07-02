@@ -1,14 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './basePage';
-
-export interface UserData {
-  id: string;
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  age: string;
-}
+import { SmartTableUser } from '../models/smartTableUser'
 
 export class SmartTablePage extends BasePage {
   private readonly smartTableContainer: Locator;
@@ -136,7 +128,7 @@ export class SmartTablePage extends BasePage {
     await this.ageInput.fill(age);
   }
 
-  async fillCreateUserForm(user: UserData) {
+  async fillCreateUserForm(user: SmartTableUser) {
     await this.fillId(user.id);
     await this.fillFirstName(user.firstName);
     await this.fillLastName(user.lastName);
@@ -153,7 +145,7 @@ export class SmartTablePage extends BasePage {
     await this.cancelCreateButton.click();
   }
 
-  async createUser(user: UserData) {
+  async createUser(user: SmartTableUser) {
     await this.clickAddRecord();
     await this.fillCreateUserForm(user);
     await this.saveUser();

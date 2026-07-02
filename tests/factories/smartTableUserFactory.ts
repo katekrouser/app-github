@@ -7,7 +7,7 @@ export class SmartTableUserFactory {
       id: faker.number.int({ min: 100, max: 999 }).toString(),
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
-      username: faker.internet.username(),
+      username: faker.internet.userName(),
       email: faker.internet.email(),
       age: faker.number.int({ min: 18, max: 65 }).toString(),
 
