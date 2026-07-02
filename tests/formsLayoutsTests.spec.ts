@@ -1,4 +1,4 @@
-import { test, expect } from './page-objects/test-options' 
+import { test, expect } from './pageObjects/testOptions' 
 import { InlineFormUserFactory } from '../tests/factories/inlineFormUserFactory'
 
 test.describe('Form Layouts and Tables Tests', () => {
