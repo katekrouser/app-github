@@ -13,23 +13,19 @@
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
-
     "test:dev": "playwright test --project=dev",
     "test:staging": "playwright test --project=staging",
-
     "test:regression": "playwright test --grep @regression",
     "test:regression:staging": "playwright test --project=staging --grep @regression",
-
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.playwright.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure": "npm run allure:generate && npm run allure:open"
-},
+  },
   "dependencies": {
     "@angular/animations": "^14.2.12",
     "@angular/cdk": "14.2.7",
@@ -85,11 +81,13 @@
     "@angular/cli": "^14.2.10",
     "@angular/compiler-cli": "^14.2.12",
     "@angular/language-service": "14.2.12",
-    "@faker-js/faker": "^10.5.0",
+    "@faker-js/faker": "^8.4.1",
     "@fortawesome/fontawesome-free": "^5.2.0",
     "@playwright/test": "^1.61.1",
     "@types/leaflet": "1.2.3",
     "@types/node": "^12.12.70",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2",
     "codelyzer": "^0.0.28",
     "conventional-changelog-cli": "^2.2.2",
     "npm-run-all": "4.0.2",
@@ -98,8 +96,6 @@
     "ts-node": "3.2.2",
     "tslint": "~6.1.0",
     "tslint-language-service": "^0.9.9",
-    "typescript": "~4.6.4",
-    "allure-commandline": "^2.34.1",
-    "allure-playwright": "^3.4.2"
+    "typescript": "~4.6.4"
   }
 }
