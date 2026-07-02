@@ -1,12 +1,14 @@
 import { Page, Locator } from "@playwright/test";
+import { BasePage } from "./basePage";
 
-export class NavigationPage {
+export class NavigationPage extends BasePage {
  
     readonly page: Page
     readonly smartTableMenuItem: Locator
     readonly formLayouts: Locator
 
     constructor(page: Page) {
+        super(page)
         this.page = page
         this.smartTableMenuItem = page.getByTitle('Smart Table')
         this.formLayouts = page.getByTitle('Form Layouts')

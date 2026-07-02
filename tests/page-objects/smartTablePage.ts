@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import { HelperBase } from "./helperBase";
+import { BasePage } from "./basePage";
 
 export interface UserData {
     id: string;
@@ -10,7 +10,7 @@ export interface UserData {
     age: string;
 }
 
-export class SmartTablePage extends HelperBase {
+export class SmartTablePage extends BasePage {
 
     private readonly smartTableContainer: Locator;
 

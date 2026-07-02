@@ -1,7 +1,7 @@
 import { Page, Locator} from "@playwright/test";
-import { HelperBase } from "./helperBase";
+import { BasePage } from "./basePage";
 
-export class FormLayoutsPage extends HelperBase{
+export class FormLayoutsPage extends BasePage {
  
     private readonly inlineFormContainer: Locator;
     private readonly _nameInput: Locator;
