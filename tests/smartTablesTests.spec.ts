@@ -1,18 +1,11 @@
 import { test, expect } from './page-objects/test-options'
-import { faker } from '@faker-js/faker'
-
-    const user = {
-        id: faker.number.int({ min: 100, max: 999 }).toString(),
-        firstName: faker.person.firstName(),
-        lastName: faker.person.lastName(),
-        username: faker.internet.username(),
-        email: faker.internet.email(),
-        age: faker.number.int({ min: 18, max: 65 }).toString(),
-    }
+import { SmartTableUserFactory } from '../tests/factories/smartTableUserFactory'
 
 test.describe('Smart Table Tests', () => {
 
     test('Add new user to Smart Table',{ tag: '@regression' }, async ({ page, pm }) => {
+
+        const user = SmartTableUserFactory.create();
 
         await test.step('Open smart table page', async () => {
             await pm.navigateTo().openSmartTable()
