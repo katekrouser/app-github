@@ -1,4 +1,4 @@
-import { test, expect } from './page-objects/test-options'
+import { test, expect } from './pageObjects/testOptions'
 import { SmartTableUserFactory } from '../tests/factories/smartTableUserFactory'
 
 test.describe('Smart Table Tests', () => {
